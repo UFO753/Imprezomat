@@ -7,16 +7,10 @@ function serviceproviderCheckVerified(verified) {
   console.log(verified);
   if (verified == "yes") {
     console.log(verified);
-    document.write(
-      '<h3 class= "serviceprovider-verification-true" >Zweryfikowany</h3>'
-    );
+    document.write('<h6 class= "bg-success" >Zweryfikowany</h6>');
   } else if (verified == "no") {
-    document.write(
-      '<h3 class= "serviceprovider-verification-false" >Oczekuje na weryfikację</h3>'
-    );
+    document.write('<h6 class= "bg-danger" >Oczekuje na weryfikację</h6>');
   } else {
-    document.write(
-      '<h3 class= "serviceprovider-verification-error" >Błąd weryfikacji</h3>'
-    );
+    document.write('<h6 class= "bg-warning" >Błąd weryfikacji</h6>');
   }
 }

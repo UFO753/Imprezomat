@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path");
 const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
@@ -261,4 +260,6 @@ app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
 
-app.listen(port, () => console.log(`Express app running on port ${port}!`));
+app.listen(port, () =>
+  console.log(`Aplikacja express została uruchomiona na porcie ${port}!`)
+);
