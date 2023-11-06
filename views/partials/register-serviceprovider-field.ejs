@@ -1,0 +1,54 @@
+<div class="register-container" id="register-container">
+  <div class="register-header">Rejestrowanie jako dostawca usług</div>
+  <form action="/registerserviceprovider" method="POST">
+    <div class="input-group">
+      <label for="globalname">Nazwa:</label>
+      <input type="text" id="globalname" name="globalname" required />
+    </div>
+    <div class="input-group">
+      <label for="description">Opis:</label>
+      <input type="textbox" id="description" name="description" required />
+    </div>
+    <div class="input-group">
+      <label for="category1">Kategoria:</label>
+      <label
+        ><input
+          class="checkboxlist"
+          style="width: auto"
+          type="checkbox"
+          id="category1"
+          name="category1"
+          value="1"
+        />Sala</label
+      >
+      <label
+        ><input
+          class="checkboxlist"
+          style="width: auto"
+          type="checkbox"
+          id="category2"
+          name="category2"
+          value="1"
+        />Katering</label
+      >
+      <label
+        ><input
+          class="checkboxlist"
+          style="width: auto"
+          type="checkbox"
+          id="category3"
+          name="category3"
+          value="1"
+        />Zespół</label
+      >
+    </div>
+    <div class="input-group">
+      <label for="photo">Zdjęcie poglądowe w formacie 16:9:</label>
+      <input type="photo" id="photo" name="photo" required />
+    </div>
+    <div class="input-group">
+      <input type="text" value="no" id="isverified" name="isverified" hidden />
+      <input type="submit" id="register-button-confirm" value="Zarejestruj" />
+    </div>
+  </form>
+</div>

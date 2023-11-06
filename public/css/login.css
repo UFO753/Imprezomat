@@ -1,0 +1,25 @@
+.login-container {
+  background-color: #2196f3;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding-right: 35px;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.login-header {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,21 @@
+<div class="navbar">
+  <ul class="nav-links">
+    <li><a class="btn" href="/">Strona główna</a></li>
+    <% if (!user) { %>
+    <li><a class="btn" href="/about">O stronie</a></li>
+    <%} else { %>
+
+    <li><a class="btn" href="/serviceproviders">Dostawcy usług</a></li>
+    <li><a class="btn" href="/calendar">Kalendarz</a></li>
+    <%}%>
+  </ul>
+  <div id="login-nav-field">
+    <% if (!user) { %>
+    <a class="btn" href="/login">Zaloguj</a>
+    <a class="btn" href="/register">Zarejestruj</a>
+    <%} else { %>
+    <a class="btn" href="/userdashboard">Panel użytkownika</a>
+    <a class="btn" href="/logout">Wyloguj</a>
+    <%}%>
+  </div>
+</div>

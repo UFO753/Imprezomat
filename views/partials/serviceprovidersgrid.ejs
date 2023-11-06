@@ -1,0 +1,17 @@
+<div class="serviceprovidersgrid">
+  <% allServiceProviders.forEach(provider => { %>
+  <div class="serviceprovider-item">
+    <script>
+      serviceproviderCheckVerified("<%= provider.isverified %>");
+    </script>
+    <!-- prettier-ignore -->
+    <img width="400" height="225" src='<%=provider.photo%>' /> <br />
+    <div class="serviceprovider-displayname"><%= provider.globalname %></div>
+    <script>
+      serviceproviderShortText("<%= provider.description %>");
+    </script>
+    <br />
+    <a class="btn addon-button" href="/serviceproviderfulldisplay">Więcej...</a>
+  </div>
+  <% }); %>
+</div>

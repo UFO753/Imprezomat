@@ -1,0 +1,57 @@
+.serviceprovidersgrid {
+  gap: 2%;
+  width: 95%;
+  height: 100%;
+  padding: 2%;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.serviceprovider-item {
+  align-self: center;
+  background-color: #2196f3;
+  width: auto;
+  max-width: 400px;
+  border-radius: 10px;
+  padding: 1%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 5px;
+}
+
+.serviceprovider-break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.serviceprovider-displayname {
+  font-size: larger;
+  inline-size: min-content;
+}
+
+.serviceprovider-short-description {
+  inline-size: min-content;
+}
+
+.serviceprovider-verification-true {
+  background-color: green;
+  width: 100%;
+  margin: 0;
+}
+.serviceprovider-verification-false {
+  background-color: red;
+  width: 100%;
+  margin: 0;
+}
+.serviceprovider-verification-error {
+  background-color: grey;
+  width: 100%;
+  margin: 0;
+}
+.addon-button {
+  float: right;
+}

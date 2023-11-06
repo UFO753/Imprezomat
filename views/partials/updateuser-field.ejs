@@ -1,0 +1,26 @@
+<form action="/update-data" method="POST">
+  <div class="input-group">
+    <label for="firstname">Imię:</label>
+    <input type="firstname" id="firstname" name="firstname" required />
+  </div>
+  <div class="input-group">
+    <label for="lastname">Nazwisko:</label>
+    <input type="lastname" id="lastname" name="lastname" required />
+  </div>
+  <div class="input-group">
+    <label for="groupID">ID grupy:</label>
+    <input type="groupID" id="groupID" name="groupID" required />
+  </div>
+  <div class="input-group">
+    <!-- prettier-ignore -->
+    <input
+      type="username"
+      id="username"
+      name="username"
+      hidden
+      value=<%= user.username %>
+    />
+    <!-- prettier-ignore -->
+    <input type="submit" id="login-button-confirm" value="Potwierdź" />
+  </div>
+</form>
