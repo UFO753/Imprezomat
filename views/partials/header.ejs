@@ -1,21 +1,39 @@
-<div class="navbar">
-  <ul class="nav-links">
-    <li><a class="btn" href="/">Strona główna</a></li>
-    <% if (!user) { %>
-    <li><a class="btn" href="/about">O stronie</a></li>
-    <%} else { %>
-
-    <li><a class="btn" href="/serviceproviders">Dostawcy usług</a></li>
-    <li><a class="btn" href="/calendar">Kalendarz</a></li>
-    <%}%>
-  </ul>
-  <div id="login-nav-field">
-    <% if (!user) { %>
-    <a class="btn" href="/login">Zaloguj</a>
-    <a class="btn" href="/register">Zarejestruj</a>
-    <%} else { %>
-    <a class="btn" href="/userdashboard">Panel użytkownika</a>
-    <a class="btn" href="/logout">Wyloguj</a>
-    <%}%>
+<nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Imprezomat</a>
+    </div>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="btn nav-link active" href="/">Strona główna</a>
+      </li>
+      <% if (!user) { %>
+      <li class="nav-item">
+        <a class="btn nav-link" href="/about">O stronie</a>
+      </li>
+      <%} else { %>
+      <li>
+        <a class="btn nav-link" href="/serviceproviders">Dostawcy usług</a>
+      </li>
+      <li><a class="btn nav-link" href="/calendar">Kalendarz</a></li>
+      <%}%>
+    </ul>
+    <ul id="login-nav-field" class="nav navbar-nav justify-content-end">
+      <% if (!user) { %>
+      <li class="nav-item">
+        <a class="btn nav-link" href="/login">Zaloguj</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn nav-link" href="/register">Zarejestruj</a>
+      </li>
+      <%} else { %>
+      <li class="nav-item">
+        <a class="btn nav-link" href="/userdashboard">Panel użytkownika</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn nav-link" href="/logout">Wyloguj</a>
+      </li>
+      <%}%>
+    </ul>
   </div>
-</div>
+</nav>
