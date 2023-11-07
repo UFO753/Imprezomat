@@ -9,26 +9,37 @@
       </li>
       <% if (!user) { %>
       <li class="nav-item">
-        <a class="btn nav-link" href="/about">O stronie</a>
+        <a class="btn nav-link" id="navabout" href="/about">O stronie</a>
       </li>
       <%} else { %>
       <li>
-        <a class="btn nav-link" href="/serviceproviders">Dostawcy usług</a>
+        <a
+          class="btn nav-link"
+          id="navserviceproviders"
+          href="/serviceproviders"
+          >Dostawcy usług</a
+        >
       </li>
-      <li><a class="btn nav-link" href="/calendar">Kalendarz</a></li>
+      <li>
+        <a class="btn nav-link" id="navcalendar" href="/calendar">Kalendarz</a>
+      </li>
       <%}%>
     </ul>
     <ul id="login-nav-field" class="nav navbar-nav justify-content-end">
       <% if (!user) { %>
       <li class="nav-item">
-        <a class="btn nav-link" href="/login">Zaloguj</a>
+        <a class="btn nav-link" id="navlogin" href="/login">Zaloguj</a>
       </li>
       <li class="nav-item">
-        <a class="btn nav-link" href="/register">Zarejestruj</a>
+        <a class="btn nav-link" id="navregister" href="/register"
+          >Zarejestruj</a
+        >
       </li>
       <%} else { %>
       <li class="nav-item">
-        <a class="btn nav-link" href="/userdashboard">Panel użytkownika</a>
+        <a class="btn nav-link" id="navuserdashboard" href="/userdashboard"
+          >Panel użytkownika</a
+        >
       </li>
       <li class="nav-item">
         <a class="btn nav-link" href="/logout">Wyloguj</a>
