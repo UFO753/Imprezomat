@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+exports.app = app;
 const port = 3000;
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -34,6 +35,7 @@ const userSchema = new mongoose.Schema({
   firstname: String,
   lastname: String,
   groupID: String,
+  email: String,
 });
 
 const serviceprovider = new mongoose.Schema({
@@ -47,6 +49,7 @@ const serviceprovider = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema, "users");
+exports.User = User;
 
 const ServiceProviderModel = mongoose.model(
   "ServiceProviderModel",
@@ -176,7 +179,7 @@ function isAuthenticated(req, res, next) {
 }
 
 app.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
 
   try {
     const existingUser = await User.findOne({ username: username });
@@ -189,6 +192,7 @@ app.post("/register", async (req, res) => {
     const newUser = new User({
       username,
       password: bcrypt.hashSync(password, 10),
+      email,
     });
     await newUser.save();
 
@@ -233,25 +237,6 @@ app.post("/registerserviceprovider", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.redirect("/registerserviceprovider");
-  }
-});
-
-app.post("/update-data", async (req, res) => {
-  //nie działą do naprawienia lol
-  const { username, firstname, lastname, groupID } = req.body;
-  console.log(firstname);
-  try {
-    const existingUser = await User.findOne({ username: username });
-    if (existingUser) {
-      existingUser.firstname = firstname;
-      existingUser.lastname = lastname;
-      existingUser.groupID = groupID;
-
-      await existingUser.save();
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Błąd podczas aktualizacji danych");
   }
 });
 

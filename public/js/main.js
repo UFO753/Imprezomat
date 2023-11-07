@@ -39,7 +39,12 @@ if (window.location) {
     case "serviceproviders":
       ChangeActiveNavbar("navserviceproviders");
       break;
+    case "userdashboard":
+      ChangeActiveNavbar("navuserdashboard");
+      break;
+    case "registerserviceprovider":
+      ChangeActiveNavbar("navregisterserviceprovider");
+      break;
     default:
-    // code block
   }
 }

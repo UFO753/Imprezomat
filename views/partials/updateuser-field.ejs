@@ -1,26 +1,49 @@
-<form action="/update-data" method="POST">
-  <div class="input-group">
-    <label for="firstname">Imię:</label>
-    <input type="firstname" id="firstname" name="firstname" required />
-  </div>
-  <div class="input-group">
-    <label for="lastname">Nazwisko:</label>
-    <input type="lastname" id="lastname" name="lastname" required />
-  </div>
-  <div class="input-group">
-    <label for="groupID">ID grupy:</label>
-    <input type="groupID" id="groupID" name="groupID" required />
-  </div>
-  <div class="input-group">
+<form action="/userdashboard" method="POST">
+  <div class="mb-3">
+    <label class="small mb-1" for="username">Nazwa użytkownika</label>
     <!-- prettier-ignore -->
-    <input
-      type="username"
+    <input disabled
+      class="form-control"
       id="username"
-      name="username"
-      hidden
+      type="text"
+      placeholder="Wprowadź swoją nazwę"
       value=<%= user.username %>
     />
-    <!-- prettier-ignore -->
-    <input type="submit" id="login-button-confirm" value="Potwierdź" />
   </div>
+  <div class="row gx-3 mb-3">
+    <div class="col-md-6">
+      <label class="small mb-1" for="firstname">Imię</label>
+      <!-- prettier-ignore -->
+      <input
+        class="form-control"
+        id="firstname"
+        type="text"
+        placeholder="Wprowadź swoje imię"
+        value=<%= user.firstname %>
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="small mb-1" for="lastname">Nazwisko</label>
+      <!-- prettier-ignore -->
+      <input
+        class="form-control"
+        id="lastname"
+        type="text"
+        placeholder="Wprowadź swoje nazwisko"
+        value=<%= user.lastname %>
+      />
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="small mb-1" for="email">Adres email</label>
+    <!-- prettier-ignore -->
+    <input
+      class="form-control"
+      id="email"
+      type="email"
+      placeholder="Wprowadź adres email"
+      value=<%= user.email %>
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Potwierdź</button>
 </form>
