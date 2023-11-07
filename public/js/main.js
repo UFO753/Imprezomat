@@ -3,7 +3,6 @@ function serviceproviderShortText(description) {
 }
 
 function serviceproviderCheckVerified(verified) {
-  console.log(verified);
   if (verified == "yes") {
     document.write('<h6 class= "bg-success" >Zweryfikowany</h6>');
   } else if (verified == "no") {

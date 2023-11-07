@@ -6,11 +6,20 @@
   <body>
     <header><%- include('../partials/header'); %></header>
     <main>
-      Witaj na stronie "Imprezomat" jest to strona stworzona do pracy
-      inżynierskiej "Strona internetowa służąca do organizacji imprez
-      okolicznościowych" autorstwa Wojciecha Charkiewicza. Jest to strona w
-      wersji bardzo technicznej, mało wizualnej strony dużo za to technicznego
-      działania.
+      <div class="container">
+        <div class="jumbotron">
+          <h1>Imprezomat jak powstał?</h1>
+          <p>
+            Imprezomat powstał z myślą zrzeszenia usługodawców w przypadku
+            imprez okolicznościowych, skąd pomysł na temat? Szczerze? To nie
+            wiem przyszedł do głowy i się tak przyjął.
+          </p>
+        </div>
+        <p>
+          Strona jest zbudowana przy pomocy Express.Js, MongoDB a za front-end
+          odpowiada bootstrap
+        </p>
+      </div>
     </main>
     <footer><%- include('../partials/footer'); %></footer>
     <%- include('../partials/scripts'); %>
