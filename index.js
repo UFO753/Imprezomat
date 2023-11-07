@@ -136,9 +136,7 @@ app.get("/update-data", function (req, res) {
 });
 
 app.get("/serviceproviderfull/:id", async (req, res) => {
-  console.log(req.params.id);
   try {
-    console.log(req.params.id);
     const checkserviceprovider = await ServiceProviderModel.findOne({
       _id: req.params.id,
     });
@@ -253,14 +251,14 @@ app.post("/registerserviceprovider", async (req, res) => {
   }
 });
 
-app.post("/userdashboard", async (req, res) => {
+app.post("/userdashboard/:id", async (req, res) => {
   //nie działą do naprawienia lol
-  const { username, firstname, lastname, groupID } = req.body;
-  console.log(req.body);
+  const { username, firstname, lastname, email, groupID } = req.body;
+  console.log(req.params);
   try {
     const existingUser = await User.findOneAndUpdate(
-      { username: username },
-      { $set: { username, firstname, lastname } },
+      { _id: req.params.id },
+      { username, firstname, lastname, email },
       { new: true }
     );
     if (!existingUser) {

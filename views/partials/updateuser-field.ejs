@@ -1,4 +1,4 @@
-<form action="/userdashboard" method="POST">
+<form action="/userdashboard/<%= user._id%>" method="POST">
   <div class="mb-3">
     <label class="small mb-1" for="username">Nazwa użytkownika</label>
     <!-- prettier-ignore -->
@@ -17,6 +17,7 @@
       <input
         class="form-control"
         id="firstname"
+        name="firstname"
         type="text"
         placeholder="Wprowadź swoje imię"
         value=<%= user.firstname %>
@@ -28,6 +29,7 @@
       <input
         class="form-control"
         id="lastname"
+        name="lastname"
         type="text"
         placeholder="Wprowadź swoje nazwisko"
         value=<%= user.lastname %>
@@ -40,6 +42,7 @@
     <input
       class="form-control"
       id="email"
+      name="email"
       type="email"
       placeholder="Wprowadź adres email"
       value=<%= user.email %>
