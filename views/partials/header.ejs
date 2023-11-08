@@ -1,28 +1,25 @@
-<nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary navbar-inverse">
+<nav class="navbar navbar-expand-lg bg-primary-subtle navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Imprezomat</a>
     </div>
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="btn nav-link active" href="/">Strona główna</a>
+        <a class="nav-link active" href="/">Strona główna</a>
       </li>
       <% if (!user) { %>
       <li class="nav-item">
-        <a class="btn nav-link" id="navabout" href="/about">O stronie</a>
+        <a class="nav-link" id="navabout" href="/about">O stronie</a>
       </li>
       <%} else { %>
       <li>
-        <a
-          class="btn nav-link"
-          id="navserviceproviders"
-          href="/serviceproviders"
+        <a class="nav-link" id="navserviceproviders" href="/serviceproviders"
           >Dostawcy usług</a
         >
       </li>
       <li>
         <a
-          class="btn nav-link"
+          class="nav-link"
           id="navregisterserviceprovider"
           href="/registerserviceprovider"
           >Rejestracja jako dostawca usług</a
@@ -33,21 +30,19 @@
     <ul id="login-nav-field" class="nav navbar-nav justify-content-end">
       <% if (!user) { %>
       <li class="nav-item">
-        <a class="btn nav-link" id="navlogin" href="/login">Zaloguj</a>
+        <a class="nav-link" id="navlogin" href="/login">Zaloguj</a>
       </li>
       <li class="nav-item">
-        <a class="btn nav-link" id="navregister" href="/register"
-          >Zarejestruj</a
-        >
+        <a class="nav-link" id="navregister" href="/register">Zarejestruj</a>
       </li>
       <%} else { %>
       <li class="nav-item">
-        <a class="btn nav-link" id="navuserdashboard" href="/userdashboard"
+        <a class="nav-link" id="navuserdashboard" href="/userdashboard"
           >Panel użytkownika</a
         >
       </li>
       <li class="nav-item">
-        <a class="btn nav-link" href="/logout">Wyloguj</a>
+        <a class="nav-link" href="/logout">Wyloguj</a>
       </li>
       <%}%>
     </ul>

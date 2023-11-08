@@ -5,7 +5,14 @@
   </head>
   <body>
     <header><%- include('../partials/header'); %></header>
-    <main><%- include('../partials/userdashboardgrid'); %></main>
+    <main>
+      <div class="container mt-4">
+        <div id="alertBox" class="alert d-none" role="alert">
+          <!-- Tutaj zostanie umieszczony tekst alertu -->
+        </div>
+      </div>
+      <%- include('../partials/userdashboardgrid'); %>
+    </main>
     <footer><%- include('../partials/footer'); %></footer>
     <%- include('../partials/scripts'); %>
   </body>

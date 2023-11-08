@@ -45,6 +45,12 @@ const serviceprovider = new mongoose.Schema({
   category2: String,
   category3: String,
   photo: String,
+  photo1: String,
+  photo2: String,
+  photo3: String,
+  photo4: String,
+  photo5: String,
+  photo6: String,
   isverified: String,
 });
 
@@ -228,6 +234,12 @@ app.post("/registerserviceprovider", async (req, res) => {
     category2,
     category3,
     photo,
+    photo1,
+    photo2,
+    photo3,
+    photo4,
+    photo5,
+    photo6,
     isverified,
   } = req.body;
 
@@ -239,6 +251,12 @@ app.post("/registerserviceprovider", async (req, res) => {
       category2,
       category3,
       photo,
+      photo1,
+      photo2,
+      photo3,
+      photo4,
+      photo5,
+      photo6,
       isverified,
     });
     await newServiceProviderModel.save();
@@ -252,24 +270,29 @@ app.post("/registerserviceprovider", async (req, res) => {
 });
 
 app.post("/userdashboard/:id", async (req, res) => {
-  //nie działą do naprawienia lol
   const { username, firstname, lastname, email, groupID } = req.body;
-  console.log(req.params);
   try {
     const existingUser = await User.findOneAndUpdate(
       { _id: req.params.id },
       { username, firstname, lastname, email },
       { new: true }
     );
+
     if (!existingUser) {
       return res
         .status(404)
-        .json({ message: "Użytkownik nie został znaleziony" });
+        .json({ success: false, message: "Użytkownik nie został znaleziony" });
     }
+    res.status(200).json({
+      success: true,
+      message: "Aktualizacja danych przebiegła pomyślnie.",
+    });
     res.redirect("/userdashboard");
   } catch (error) {
     console.error(error);
-    res.status(500).send("Błąd podczas aktualizacji danych");
+    res
+      .status(200)
+      .json({ success: false, message: "Błąd podczas aktualizacji danych." });
     res.redirect("/userdashboard");
   }
 });

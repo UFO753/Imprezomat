@@ -6,8 +6,24 @@
   <body>
     <header><%- include('../partials/header'); %></header>
     <main>
-      <%- include('../partials/serviceproviderfullinfophoto'); %> <%-
-      include('../partials/serviceproviderfullinfo'); %>
+      <div class="container text-center mt-2">
+        <div class="row">
+          <div class="col">
+            <h2 class="card-title"><%= serviceprovider.globalname %></h5>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col">
+            <%- include('../partials/serviceproviderfullinfo'); %>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col">
+            <%- include('../partials/serviceproviderfullinfophoto'); %>
+          </div>
+        </div>
+        
+      </div>
     </main>
     <footer><%- include('../partials/footer'); %></footer>
     <%- include('../partials/scripts'); %>

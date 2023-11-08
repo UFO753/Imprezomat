@@ -1,54 +1,138 @@
-<div class="register-container" id="register-container">
-  <div class="register-header">Rejestrowanie jako dostawca usług</div>
-  <form action="/registerserviceprovider" method="POST">
-    <div class="input-group">
-      <label for="globalname">Nazwa:</label>
-      <input type="text" id="globalname" name="globalname" required />
-    </div>
-    <div class="input-group">
-      <label for="description">Opis:</label>
-      <input type="textbox" id="description" name="description" required />
-    </div>
-    <div class="input-group">
-      <label for="category1">Kategoria:</label>
-      <label
-        ><input
-          class="checkboxlist"
-          style="width: auto"
-          type="checkbox"
-          id="category1"
-          name="category1"
-          value="1"
-        />Sala</label
-      >
-      <label
-        ><input
-          class="checkboxlist"
-          style="width: auto"
-          type="checkbox"
-          id="category2"
-          name="category2"
-          value="1"
-        />Katering</label
-      >
-      <label
-        ><input
-          class="checkboxlist"
-          style="width: auto"
-          type="checkbox"
-          id="category3"
-          name="category3"
-          value="1"
-        />Zespół</label
-      >
-    </div>
-    <div class="input-group">
-      <label for="photo">Zdjęcie poglądowe w formacie 16:9:</label>
-      <input type="photo" id="photo" name="photo" required />
-    </div>
-    <div class="input-group">
-      <input type="text" value="no" id="isverified" name="isverified" hidden />
-      <input type="submit" id="register-button-confirm" value="Zarejestruj" />
-    </div>
-  </form>
-</div>
+<h3>Rejestrowanie jako dostawca usług</h3>
+<form action="/registerserviceprovider" method="POST">
+  <div class="mb-3">
+    <label for="globalname">Nazwa:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="globalname"
+      name="globalname"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="description">Opis:</label>
+    <input
+      type="textbox"
+      class="form-control"
+      id="description"
+      name="description"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label>Kategoria:</label><br />
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="category1"
+      name="category1"
+      value="1"
+    />
+    <label for="category1" class="form-check-label">Sala</label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="category2"
+      name="category2"
+      value="1"
+    /><label for="category2" class="form-check-label">Katering</label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="category3"
+      name="category3"
+      value="1"
+    /><label for="category3" class="form-check-label">Zespół</label>
+  </div>
+  <div class="mb-3">
+    <label for="photo"
+      >Główne zdjęcie poglądowe w formacie 16:9
+      <c class="fw-lighter">(link bezpośredni)</c>:</label
+    >
+    <input type="photo" class="form-control" id="photo" name="photo" required />
+  </div>
+  <div class="mb-3">
+    <label for="photo1"
+      >Zdjęcie nr. 1 poglądowe w formacie 16:9
+      <c class="fw-lighter">(link bezpośredni)</c>:</label
+    >
+    <input
+      type="photo"
+      class="form-control"
+      id="photo"
+      name="photo1"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="photo2"
+      >Zdjęcie nr. 2 poglądowe w formacie 16:9
+      <c class="fw-lighter">(link bezpośredni)</c>:</label
+    >
+    <input
+      type="photo"
+      class="form-control"
+      id="photo"
+      name="photo2"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="photo3"
+      >Zdjęcie nr. 3 poglądowe w formacie 16:9
+      <c class="fw-lighter">(link bezpośredni)</c>:</label
+    >
+    <input
+      type="photo"
+      class="form-control"
+      id="photo"
+      name="photo3"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="photo4"
+      >Zdjęcie nr. 4 poglądowe w formacie 16:9
+      <c class="fw-lighter">(link bezpośredni)</c>:</label
+    >
+    <input
+      type="photo"
+      class="form-control"
+      id="photo"
+      name="photo4"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="photo5"
+      >Zdjęcie nr. 5 poglądowe w formacie 16:9
+      <c class="fw-lighter">(link bezpośredni)</c>:</label
+    >
+    <input
+      type="photo"
+      class="form-control"
+      id="photo"
+      name="photo5"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="photo6"
+      >Zdjęcie nr. 6 poglądowe w formacie 16:9<c class="fw-lighter">
+        (link bezpośredni)</c
+      >:</label
+    >
+    <input
+      type="photo"
+      class="form-control"
+      id="photo"
+      name="photo6"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <input type="text" value="no" id="isverified" name="isverified" hidden />
+    <input type="submit" id="register-button-confirm" value="Zarejestruj" />
+  </div>
+</form>

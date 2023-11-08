@@ -5,7 +5,17 @@
   </head>
   <body>
     <header><%- include('../partials/header'); %></header>
-    <main><%- include('../partials/register-serviceprovider-field'); %></main>
+    <main>
+      <div class="container">
+        <div class="row mt-4 justify-content-center">
+          <div
+            class="col-8 mb-3 p-3 bg-primary bg-gradient text-white rounded-5"
+          >
+            <%- include('../partials/register-serviceprovider-field'); %>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer><%- include('../partials/footer'); %></footer>
     <%- include('../partials/scripts'); %>
   </body>
