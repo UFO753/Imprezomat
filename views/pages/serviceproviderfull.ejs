@@ -7,6 +7,14 @@
     <header><%- include('../partials/header'); %></header>
     <main>
       <div class="container text-center mt-2">
+        <% if (user.superadmin=="yes") { %>
+        <div class="row">
+          <div class="col text-center">
+            <button type="button" class="btn btn-success">Zweryfikuj</button>
+            <button type="button" class="btn btn-danger">Usuń</button>
+          </div>
+        </div>
+        <%} else { %><%}%>
         <div class="row">
           <div class="col">
             <h2 class="card-title"><%= serviceprovider.globalname %></h5>

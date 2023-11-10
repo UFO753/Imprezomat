@@ -36,6 +36,7 @@ const userSchema = new mongoose.Schema({
   lastname: String,
   groupID: String,
   email: String,
+  superadmin: String,
 });
 
 const serviceprovider = new mongoose.Schema({
@@ -168,15 +169,6 @@ app.get("/register", function (req, res) {
   });
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-  })
-);
-
 app.get("/", isAuthenticated, (req, res) => {
   res.render("pages/userdashboard");
 });
@@ -197,6 +189,15 @@ function isAuthenticated(req, res, next) {
   res.redirect("/login");
 }
 
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+  })
+);
+
 app.post("/register", async (req, res) => {
   const { username, password, email } = req.body;
 
@@ -207,11 +208,12 @@ app.post("/register", async (req, res) => {
       req.flash("message", "Użytkownik o tej nazwie już istnieje.");
       return res.redirect("/register");
     }
-
+    let superadmin = "no";
     const newUser = new User({
       username,
       password: bcrypt.hashSync(password, 10),
       email,
+      superadmin,
     });
     await newUser.save();
 
