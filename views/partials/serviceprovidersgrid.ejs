@@ -2,10 +2,12 @@
   <% allServiceProviders.forEach(provider => { %>
   <div class="card" style="width: 18rem">
     <img src="<%=provider.photo%>" class="card-img-top" alt="..." />
-    <div class="card-body">
+    <div class="card-img-overlay" style="height: 20px">
       <script>
         serviceproviderCheckVerified("<%= provider.isverified %>");
       </script>
+    </div>
+    <div class="card-body">
       <h5 class="card-title"><%= provider.globalname %></h5>
       <p class="card-text">
         <script>

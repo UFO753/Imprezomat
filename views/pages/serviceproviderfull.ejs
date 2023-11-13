@@ -9,28 +9,45 @@
       <div class="container text-center mt-2">
         <% if (user.superadmin=="yes") { %>
         <div class="row">
-          <div class="col text-center">
-            <button type="button" class="btn btn-success">Zweryfikuj</button>
-            <button type="button" class="btn btn-danger">Usuń</button>
+          <div class="col-5"></div>
+          <div class="col-1">
+            <% if (serviceprovider.isverified=="no") { %>
+            <form
+              action="/verifyserviceprovider/<%= serviceprovider._id %>"
+              method="POST"
+            >
+              <button type="submit" class="btn btn-success">Zweryfikuj</button>
+            </form>
+            <%}%>
           </div>
+          <div class="col-1">
+            <form
+              action="/deleteserviceprovider/<%= serviceprovider._id %>"
+              method="POST"
+            >
+              <button type="submit" class="btn btn-danger">Usuń</button>
+            </form>
+          </div>
+          <div class="col-5"></div>
         </div>
         <%} else { %><%}%>
         <div class="row">
           <div class="col">
-            <h2 class="card-title"><%= serviceprovider.globalname %></h5>
+            <h2 class="card-title"><%= serviceprovider.globalname %></h2>
           </div>
         </div>
         <div class="row mt-1">
-          <div class="col">
+          <div class="col-1"></div>
+          <div class="col-10">
             <%- include('../partials/serviceproviderfullinfo'); %>
           </div>
+          <div class="col-1"></div>
         </div>
         <div class="row mt-1">
           <div class="col">
             <%- include('../partials/serviceproviderfullinfophoto'); %>
           </div>
         </div>
-        
       </div>
     </main>
     <footer><%- include('../partials/footer'); %></footer>

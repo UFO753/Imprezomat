@@ -117,7 +117,7 @@ app.get("/", function (req, res) {
 
 app.get("/serviceproviders", async (req, res) => {
   try {
-    const allServiceProviders = await ServiceProviderModel.find();
+    let allServiceProviders = await ServiceProviderModel.find();
     res.render("pages/serviceproviders", {
       user: req.user,
       allServiceProviders: allServiceProviders,
@@ -160,6 +160,45 @@ app.get("/registerserviceprovider", function (req, res) {
   res.render("pages/registerserviceprovider", {
     user: req.user,
   });
+});
+
+app.post("/verifyserviceprovider/:id", async (req, res) => {
+  try {
+    let isverified = "yes";
+    let allServiceProviders = await ServiceProviderModel.find();
+    let updatedServiceProvider = await ServiceProviderModel.findOneAndUpdate(
+      { _id: req.params.id },
+      { isverified },
+      { new: true }
+    );
+    if (!updatedServiceProvider) {
+      return res.status(404).json({
+        success: false,
+        message: "Dostawca usług nie został znaleziony",
+      });
+    }
+    res.redirect("/serviceproviders");
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.post("/deleteserviceprovider/:id", async (req, res) => {
+  try {
+    let allServiceProviders = await ServiceProviderModel.find();
+    let updatedServiceProvider = await ServiceProviderModel.deleteOne({
+      _id: req.params.id,
+    });
+    if (!updatedServiceProvider) {
+      return res.status(404).json({
+        success: false,
+        message: "Dostawca usług nie został znaleziony",
+      });
+    }
+    res.redirect("/serviceproviders");
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 app.get("/register", function (req, res) {
