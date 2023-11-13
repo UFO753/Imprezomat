@@ -37,6 +37,7 @@ const userSchema = new mongoose.Schema({
   groupID: String,
   email: String,
   superadmin: String,
+  image: String,
 });
 
 const serviceprovider = new mongoose.Schema({
@@ -165,7 +166,6 @@ app.get("/registerserviceprovider", function (req, res) {
 app.post("/verifyserviceprovider/:id", async (req, res) => {
   try {
     let isverified = "yes";
-    let allServiceProviders = await ServiceProviderModel.find();
     let updatedServiceProvider = await ServiceProviderModel.findOneAndUpdate(
       { _id: req.params.id },
       { isverified },
@@ -185,7 +185,6 @@ app.post("/verifyserviceprovider/:id", async (req, res) => {
 
 app.post("/deleteserviceprovider/:id", async (req, res) => {
   try {
-    let allServiceProviders = await ServiceProviderModel.find();
     let updatedServiceProvider = await ServiceProviderModel.deleteOne({
       _id: req.params.id,
     });
@@ -196,6 +195,27 @@ app.post("/deleteserviceprovider/:id", async (req, res) => {
       });
     }
     res.redirect("/serviceproviders");
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.post("/uploadprofilepicture/:id", async (req, res) => {
+  const { image } = req.body;
+  try {
+    console.log(image);
+    let existingUser = await User.findOneAndUpdate(
+      { _id: req.params.id },
+      { image: image },
+      { new: true }
+    );
+    console.log(existingUser);
+    if (!existingUser) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Użytkownik nie został znaleziony" });
+    }
+    res.redirect("/userdashboard");
   } catch (error) {
     console.error(error);
   }
@@ -247,12 +267,14 @@ app.post("/register", async (req, res) => {
       req.flash("message", "Użytkownik o tej nazwie już istnieje.");
       return res.redirect("/register");
     }
+    let image = "";
     let superadmin = "no";
     const newUser = new User({
       username,
       password: bcrypt.hashSync(password, 10),
       email,
       superadmin,
+      image,
     });
     await newUser.save();
 
