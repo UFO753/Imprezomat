@@ -1,0 +1,16 @@
+<h3>Ostatnie zarejstrowane firmy</h3>
+<br />
+<div class="row">
+  <% allServiceProviders.slice(-4).reverse().forEach(provider => { %>
+
+  <div class="col-sm-3">
+    <p><%= provider.globalname %></p>
+    <img
+      src="<%=provider.photo%>"
+      class="img-responsive"
+      style="width: 100%"
+      alt="Image"
+    />
+  </div>
+  <% }); %>
+</div>

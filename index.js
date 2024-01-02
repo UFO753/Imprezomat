@@ -112,8 +112,16 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-app.get("/", function (req, res) {
-  res.render("pages/index", { user: req.user });
+app.get("/", async (req, res) => {
+  try {
+    let allServiceProviders = await ServiceProviderModel.find();
+    res.render("pages/index", {
+      user: req.user,
+      allServiceProviders: allServiceProviders,
+    });
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 app.get("/serviceproviders", async (req, res) => {
