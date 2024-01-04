@@ -40,9 +40,15 @@ const userSchema = new mongoose.Schema({
   image: String,
 });
 
+const reviewSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  comment: { type: String, required: true },
+  date: { type: String, required: true },
+});
+
 const serviceprovider = new mongoose.Schema({
-  globalname: String,
-  description: String,
+  globalname: { type: String, required: true },
+  description: { type: String, required: true },
   category1: String,
   category2: String,
   category3: String,
@@ -54,6 +60,7 @@ const serviceprovider = new mongoose.Schema({
   photo5: String,
   photo6: String,
   isverified: String,
+  reviews: [reviewSchema],
 });
 
 const User = mongoose.model("User", userSchema, "users");
@@ -169,6 +176,23 @@ app.get("/registerserviceprovider", function (req, res) {
   res.render("pages/registerserviceprovider", {
     user: req.user,
   });
+});
+
+app.post("/serviceproviderfull/:id/add-review", async (req, res) => {
+  try {
+    const { username, comment } = req.body;
+    const date = new Date().toDateString();
+    const CurrentServiceProvider = await ServiceProviderModel.findById(
+      req.params.id
+    );
+    CurrentServiceProvider.reviews.push({ username, comment, date });
+    await CurrentServiceProvider.save();
+
+    res.redirect(`/serviceproviderfull/${req.params.id}`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.post("/verifyserviceprovider/:id", async (req, res) => {

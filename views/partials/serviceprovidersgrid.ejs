@@ -9,6 +9,10 @@
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= provider.globalname %></h5>
+      <h7>
+        <% if(provider.category1=="1"){ %>Sala <%}if(provider.category2=="1"){
+        %> Katering <%}if(provider.category3=="1"){ %> Muzykanci<%};%>
+      </h7>
       <p class="card-text">
         <script>
           serviceproviderShortText("<%= provider.description %>");
