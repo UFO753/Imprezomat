@@ -44,6 +44,7 @@ const reviewSchema = new mongoose.Schema({
   username: { type: String, required: true },
   comment: { type: String, required: true },
   date: { type: String, required: true },
+  userpicture: String,
 });
 
 const serviceprovider = new mongoose.Schema({
@@ -181,11 +182,18 @@ app.get("/registerserviceprovider", function (req, res) {
 app.post("/serviceproviderfull/:id/add-review", async (req, res) => {
   try {
     const { username, comment } = req.body;
+    const userpicture = req.user.image;
+    console.log(req.user.image);
     const date = new Date().toDateString();
     const CurrentServiceProvider = await ServiceProviderModel.findById(
       req.params.id
     );
-    CurrentServiceProvider.reviews.push({ username, comment, date });
+    CurrentServiceProvider.reviews.push({
+      username,
+      comment,
+      userpicture,
+      date,
+    });
     await CurrentServiceProvider.save();
 
     res.redirect(`/serviceproviderfull/${req.params.id}`);
@@ -299,7 +307,7 @@ app.post("/register", async (req, res) => {
       req.flash("message", "Użytkownik o tej nazwie już istnieje.");
       return res.redirect("/register");
     }
-    let image = "";
+    let image = "https://i.imgur.com/tGh9Ii7.png";
     let superadmin = "no";
     const newUser = new User({
       username,

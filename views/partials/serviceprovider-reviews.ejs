@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+  <h4>Opinie klientów:</h4>
+  <% if(serviceprovider.reviews == '') { %>
+  <div class="col-md-4">Aktualnie brak opinii.</div>
+
+  <% } else { serviceprovider.reviews.forEach(review => { %>
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <img
+            src="<%= review.userpicture%>"
+            alt="Profile Picture"
+            style="max-height: 50px; max-width: 50px; border-radius: 6px"
+          />
+          <%= review.username %>
+        </h5>
+        <h7 class="card-subtitle mb-2 text-muted"> <%= review.date %> </h7>
+        <p class="card-text"><%= review.comment %></p>
+      </div>
+    </div>
+  </div>
+  <% }); }%>
+</div>
+<div class="row justify-content-center">
+  <h4>Dodaj swoją opinię:</h4>
+  <div class="col-md-8">
+    <div class="card mb-3 p-2">
+      <form
+        action="/serviceproviderfull/<%= serviceprovider._id %>/add-review"
+        method="post"
+      >
+        <div class="form-group form-check-inline">
+          <input
+            type="hidden"
+            class="form-control"
+            id="username"
+            name="username"
+            value="<%= user.username %>"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            id="userpicture"
+            name="userpicture"
+            value="<%= user.image%>"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-check-label" for="comment">Komentarz</label>
+          <input
+            class="form-control"
+            id="comment"
+            name="comment"
+            rows="3"
+            type="text"
+            placeholder="Wystaw opinię"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
