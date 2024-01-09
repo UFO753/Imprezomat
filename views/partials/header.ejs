@@ -1,50 +1,61 @@
 <nav class="navbar navbar-expand-lg bg-primary-subtle navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Imprezomat</a>
+    <a class="navbar-brand" href="/">Imprezomat</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarToggler"
+      aria-controls="navbarToggler"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="nav me-auto nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Strona główna</a>
+        </li>
+        <% if (!user) { %>
+        <li class="nav-item">
+          <a class="nav-link" id="navabout" href="/about">O stronie</a>
+        </li>
+        <%} else { %>
+        <li>
+          <a class="nav-link" id="navserviceproviders" href="/serviceproviders"
+            >Dostawcy usług</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            id="navregisterserviceprovider"
+            href="/registerserviceprovider"
+            >Rejestracja jako dostawca usług</a
+          >
+        </li>
+        <%}%>
+      </ul>
+      <ul id="login-nav-field" class="nav navbar-nav justify-content-end">
+        <% if (!user) { %>
+        <li class="nav-item">
+          <a class="nav-link" id="navlogin" href="/login">Zaloguj</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navregister" href="/register">Zarejestruj</a>
+        </li>
+        <%} else { %>
+        <li class="nav-item">
+          <a class="nav-link" id="navuserdashboard" href="/userdashboard"
+            >Panel użytkownika</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Wyloguj</a>
+        </li>
+        <%}%>
+      </ul>
     </div>
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link active" href="/">Strona główna</a>
-      </li>
-      <% if (!user) { %>
-      <li class="nav-item">
-        <a class="nav-link" id="navabout" href="/about">O stronie</a>
-      </li>
-      <%} else { %>
-      <li>
-        <a class="nav-link" id="navserviceproviders" href="/serviceproviders"
-          >Dostawcy usług</a
-        >
-      </li>
-      <li>
-        <a
-          class="nav-link"
-          id="navregisterserviceprovider"
-          href="/registerserviceprovider"
-          >Rejestracja jako dostawca usług</a
-        >
-      </li>
-      <%}%>
-    </ul>
-    <ul id="login-nav-field" class="nav navbar-nav justify-content-end">
-      <% if (!user) { %>
-      <li class="nav-item">
-        <a class="nav-link" id="navlogin" href="/login">Zaloguj</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="navregister" href="/register">Zarejestruj</a>
-      </li>
-      <%} else { %>
-      <li class="nav-item">
-        <a class="nav-link" id="navuserdashboard" href="/userdashboard"
-          >Panel użytkownika</a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Wyloguj</a>
-      </li>
-      <%}%>
-    </ul>
   </div>
 </nav>
