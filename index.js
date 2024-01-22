@@ -64,14 +64,14 @@ const serviceprovider = new mongoose.Schema({
   reviews: [reviewSchema],
 });
 
-const User = mongoose.model("User", userSchema, "users");
-exports.User = User;
-
 const ServiceProviderModel = mongoose.model(
   "ServiceProviderModel",
   serviceprovider,
   "servicesproviders"
 );
+
+const User = mongoose.model("User", userSchema, "users");
+exports.User = User;
 
 app.get("/serviceprovidersaa", async (req, res) => {});
 
@@ -142,9 +142,6 @@ app.get("/serviceproviders", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
-});
-app.get("/calendar", function (req, res) {
-  res.render("pages/calendar", { user: req.user });
 });
 app.get("/login", function (req, res) {
   res.render("pages/login", { user: req.user });
@@ -400,7 +397,6 @@ app.post("/userdashboard/:id", async (req, res) => {
   }
 });
 
-//app.use("/", routes);
 app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
